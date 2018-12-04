@@ -1,7 +1,43 @@
 /**
+  Sidebar
+  ---------------------------------------------------------------------- */
+.sidebar-navigation {
+  margin: 3rem 0;
+
+  ul {
+    @include listStripped();
+
+    a {
+      background-color: $green;
+      display: block;
+      color: $white;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid $tan;
+      font-size: 1.25rem;
+      font-weight: $font-bold;
+      font-style: italic;
+      text-transform: uppercase;
+
+      @include transition();
+
+      &:hover {
+        color: $yellow;
+      }
+    }
+
+    li:first-of-type a {
+      border-radius: 1em 1em 0 0;
+    }
+
+    li:last-of-type a {
+      border-radius: 0 0 1em 1em;
+    }
+  }
+}
+
+/**
   Responsive Navigation
   ---------------------------------------------------------------------- */
-
 #responsive-nav-toggle {
   @include hamburgerMenu(9, $black, 0.75);
 }

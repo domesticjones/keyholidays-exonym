@@ -1,7 +1,182 @@
 .type-package {
+  @include clearfix();
+
   padding-bottom: 100px;
+}
+
+.package-content {
+  float: right;
+  width: 75%;
+  padding-left: 4rem;
 }
 
 .package-details {
   @include clearfix();
+
+  margin-top: 3rem !important;
+}
+
+.package-image {
+  float: right;
+  padding-left: 4rem;
+  width: 50%;
+}
+
+.package-title {
+  float: left;
+  clear: left;
+  width: 50%;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.package-description {
+  float: left;
+  clear: left;
+  width: 50%;
+  font-style: italic;
+  font-weight: $font-light;
+}
+
+.package-gallery {
+  @include listStripped();
+  @include grid(center, flex-start, row, wrap);
+
+  li {
+    width: 25%;
+  }
+
+  a,
+  img {
+    display: block;
+  }
+
+  a {
+    @include transition();
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+.package-thumb-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.75rem;
+  font-style: italic;
+  padding: 1em;
+  color: $green;
+  line-height: 1;
+}
+
+.package-tier-heading {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: $font-ultra-bold;
+  border-top: 3px solid $yellow;
+  padding-top: 1rem;
+}
+
+.package-details-booking {
+  border-top: 3px solid $yellow;
+  padding-top: 1rem;
+  margin-top: 0;
+}
+
+a.button-package {
+  font-size: 1.25rem;
+  font-weight: $font-ultra-bold;
+  font-style: italic;
+  color: $blue;
+  background-color: $grey;
+  display: inline-block;
+  padding: 1rem;
+  border: 2px solid $blue;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px transparentize($black, 0.6);
+
+  @include transition();
+
+  &:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 5px transparentize($black, 0.6);
+  }
+}
+
+.package-booking-unavailable {
+  @include grid(flex-start, center);
+
+  margin-bottom: 1rem;
+  font-weight: $font-bold;
+  font-style: italic;
+  color: $red;
+
+  ul {
+    @include listStripped();
+  }
+
+  .name {
+    display: none;
+  }
+
+  .data {
+    margin-left: 0.25em;
+    font-weight: $font-ultra-bold;
+    font-size: 1.25em;
+  }
+}
+
+.package-sidebar {
+  width: 25%;
+  float: left;
+
+  a.button-package {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.package-sidebar-widget {
+  margin-bottom: 2rem;
+}
+
+.package-sidebar-title {
+  background-color: $yellow;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.package-pricing {
+  padding: 0 1rem;
+
+  &-size-large {
+    font-size: 1.25rem;
+  }
+
+  &-size-small {
+    font-size: 0.75rem;
+    font-style: italic;
+  }
+}
+
+.package-price-title {
+  display: block;
+  font-weight: $font-bold;
+  font-size: 0.85em;
 }
