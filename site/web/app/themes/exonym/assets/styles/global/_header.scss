@@ -1,61 +1,181 @@
 /**
   Global Website Header
   ---------------------------------------------------------------------- */
-.header-top {
-  padding: 1rem 0;
-  z-index: 9999;
+body {
+  padding-top: 102px;
+}
+
+#header {
+  position: fixed;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-image: url('../images/header-middle.png');
+  background-repeat: repeat-x;
+  background-position: right bottom;
+  background-color: $tan;
   width: 100%;
-  background-color: $white;
-
-  .wrap {
-    @include grid(space-between, center);
-  }
-
-  .nav-social {
-    ul {
-      @include listStripped();
-      @include grid();
-
-      li {
-        margin: 0 0.5em;
-      }
-
-      a,
-      img {
-        display: block;
-        height: 2em;
-      }
-
-      span {
-        display: none;
-      }
-    }
-  }
+  height: 102px;
 }
 
 .logo-header {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: block;
-  height: 2.5rem;
+  width: 35%;
+  height: 150px;
+
+  @include grid(center, center, column);
+
+  img {
+    position: relative;
+    z-index: 1;
+    display: block;
+
+    @include transition();
+  }
+
+  &:hover img {
+    transform: scale(1.01);
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 100px;
+    bottom: 0;
+    width: 100vw;
+    height: 100px;
+    background-image: url('../images/header-middle.png');
+    background-repeat: repeat-x;
+    background-position: right bottom;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 0;
+    left: calc(100% - 100px);
+    bottom: 0;
+    width: 236px;
+    height: 200px;
+    background-image: url('../images/header-transition.png');
+  }
 }
 
 #responsive-nav-toggle {
   display: none;
 }
 
+.header-sub {
+  position: relative;
+
+  .wrap {
+    @include grid(flex-end, stretch, row);
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 0;
+      height: 6px;
+      width: 100vw;
+      right: 0;
+      top: -2px;
+      background-color: $yellow;
+    }
+  }
+
+  ul {
+    @include listStripped();
+  }
+
+  a {
+    @include grid(center, center);
+    @include transition();
+
+    position: relative;
+    z-index: 1;
+    padding: 0 52px 0 0;
+    height: 64px;
+    color: $white;
+    background-image: url('../images/bar-middle.png');
+    background-repeat: repeat-x;
+    text-shadow: 0 0 1rem $black;
+    font-size: 1.15rem;
+    font-weight: $font-bold;
+    font-style: italic;
+
+    span {
+      position: relative;
+      z-index: 1;
+      transform: translateX(-16px);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      display: block;
+      height: 100%;
+      width: 146px;
+      left: -110px;
+      top: 0;
+      background-image: url('../images/bar-start.png');
+    }
+  }
+
+/* stylelint-disable */
+  nav {
+    &:hover a {
+      color: $yellow;
+    }
+
+    &:last-of-type a {
+      background-color: $yellow;
+      background-image: none;
+      padding-right: 1rem;
+      font-size: 2em;
+      color: $green;
+      text-shadow: none;
+
+      &::before {
+        background-image: url('../images/bar-end.png');
+      }
+
+      &:hover {
+        color: $green;
+        text-shadow: 0 0 0.25rem $tan;
+      }
+
+      .name {
+        font-size: 0.65em;
+        margin: 0.15em 0.25em 0 0;
+
+        &::after {
+          content: ': ';
+          display: inline;
+        }
+      }
+
+      .data {
+        font-weight: $font-ultra-bold;
+      }
+    }
+  }
+}
+
+/* stylelint-enable*/
+
+.header-sub-link {
+  position: relative;
+  z-index: 1;
+}
+
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .header-top {
-    padding: 1rem;
-  }
-
-  .nav-header,
-  .header-top .nav-social {
-    display: none;
-  }
-
-  #responsive-nav-toggle {
-    display: block;
-  }
-}

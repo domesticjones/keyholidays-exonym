@@ -1,4 +1,5 @@
 require('jquery-visible');
+require('slick-carousel');
 
 jQuery(document).ready(() => {
 	// Wrap embedded objects and force them into 16:9
@@ -8,6 +9,11 @@ jQuery(document).ready(() => {
 	$('#responsive-nav-toggle').click(e => {
 		const $this = $(e.currentTarget);
 		$this.toggleClass('is-active');
+	});
+
+	// HEADER: Slideshow
+	$('.module-slider').slick({
+		arrows: false,
 	});
 
 	// MODULES: Parallax
@@ -48,4 +54,6 @@ jQuery(document).ready(() => {
 			}
 		});
 	});
+
+
 });

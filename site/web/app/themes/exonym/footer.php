@@ -3,9 +3,17 @@
      DEFAULT FOOTER
      ============== */
 ?>
+    <footer class="footer-sub">
+      <div class="wrap">
+        <p class="copyright">&copy; <?php echo date('Y') . ' '; ex_brand('legal'); ?></p>
+        <?php
+          ex_social();
+          ex_contact('phone', true, 'global');
+        ?>
+      </div>
+    </footer>
     <footer id="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
       <div class="wrap">
-        <p class="copyright">&copy; Copyright <?php ex_brand('legal'); ?></p>
         <nav class="nav-footer" role="navigation">
           <?php wp_nav_menu(array(
             'container' => 'ul',                    // enter '' to remove nav container

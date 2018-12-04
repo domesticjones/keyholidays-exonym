@@ -1,8 +1,124 @@
 /**
   Global Website Footer
   ---------------------------------------------------------------------- */
-.nav-footer {
-  @include navMenu(vertical);
+.footer-sub {
+  background-color: $white;
+  position: relative;
+  margin-top: 100px;
+
+  .wrap {
+    @include grid(space-between, center);
+
+    & > * {
+      width: 35%;
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: calc(100% + 1rem);
+    width: 100%;
+    height: 150px;
+    background-image: url('../images/footer-emblem.png');
+    background-position: center bottom;
+    background-size: auto 100%;
+  }
+
+  .nav-social {
+    @include grid(center, center);
+
+    ul {
+      @include listStripped();
+      @include grid(center, center);
+
+      position: relative;
+      width: auto;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 0;
+        right: calc(100% - 22px);
+        top: 0;
+        height: 100%;
+        width: 90px;
+        background-image: url('../images/footer-bar-start.png');
+        background-size: auto 100%;
+        background-position: right bottom;
+        background-repeat: no-repeat;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 0;
+        left: calc(100% - 22px);
+        top: 0;
+        height: 100%;
+        width: 90px;
+        background-image: url('../images/footer-bar-end.png');
+        background-size: auto 100%;
+        background-position: left bottom;
+        background-repeat: no-repeat;
+      }
+
+      li {
+        position: relative;
+        z-index: 1;
+        background-color: $green;
+        padding: 1rem 0;
+      }
+
+      img {
+        display: block;
+        height: 3rem;
+        width: auto;
+        margin: 0 0.5rem;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .copyright {
+    padding-bottom: 0;
+    color: $green;
+  }
+
+  .nav-phone {
+    ul {
+      @include listStripped();
+      @include grid(flex-end, flex-end);
+
+      font-weight: $font-bold;
+      font-style: $font-italic;
+    }
+
+    a {
+      color: $green;
+    }
+
+    .name {
+      font-size: 1.15rem;
+      margin-right: 0.25rem;
+
+      &::after {
+        content: ': ';
+        display: inline;
+      }
+    }
+
+    .data {
+      font-size: 1.75rem;
+      font-weight: $font-ultra-bold;
+    }
+  }
 }
 
 /**
