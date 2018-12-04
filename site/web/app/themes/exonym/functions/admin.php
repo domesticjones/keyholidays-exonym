@@ -69,4 +69,9 @@ if( function_exists('acf_add_options_page') ) {
     'position'    => 3,
     'icon_url'    => 'dashicons-desktop'
 	));
+  acf_add_options_sub_page(array(
+    'page_title' 	=> 'Sidebar for Packages',
+    'menu_title'	=> 'Packages Sidebar',
+    'parent_slug'	=> 'website-options',
+  ));
 }

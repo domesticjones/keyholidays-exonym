@@ -164,6 +164,22 @@ h6 {
   letter-spacing: 0.25em;
 }
 
+.page-header {
+  border-bottom: 3px solid $yellow;
+  padding: 1rem 0;
+  margin-top: 1em;
+  font-style: $font-italic;
+
+  .cat-parent {
+    text-transform: uppercase;
+
+    &::after {
+      content: ': ';
+      display: inline;
+    }
+  }
+}
+
 /**
   Global List Settings
   ---------------------------------------------------------------------- */
