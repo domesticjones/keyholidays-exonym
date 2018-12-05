@@ -1,0 +1,80 @@
+.contact-heading {
+  font-size: 1.25rem;
+  border-bottom: 1px solid $green;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: $font-ultra-bold;
+  padding: 0 0 1rem;
+}
+
+.contact-address {
+  white-space: pre;
+}
+
+.contact-payments {
+  @include listStripped();
+  @include grid(flex-start, flex-start, row, wrap);
+
+  margin-bottom: 1rem;
+
+  li {
+    margin-right: 1rem;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.layout-contact_information {
+  nav {
+    margin-bottom: 2rem;
+
+    ul {
+      @include listStripped();
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .name {
+      font-weight: $font-ultra-bold;
+      font-style: italic;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: $green;
+
+      &::after {
+        content: ': ';
+        display: inline;
+      }
+    }
+
+    .data {
+      font-size: 1.15rem;
+    }
+  }
+}
+
+.wpcf7-form {
+  label {
+    font-weight: $font-ultra-bold;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: $green;
+  }
+}
+
+.form-top {
+  @include grid(space-between);
+
+  br {
+    display: none;
+  }
+
+  label {
+    width: 30%;
+  }
+}

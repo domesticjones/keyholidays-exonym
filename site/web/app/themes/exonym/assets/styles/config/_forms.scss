@@ -8,17 +8,17 @@ $fh-font-size: $font-size !default;
 $fh-font-color: $black !default;
 
 // Borders
-$fh-border-radius: 5px !default;
+$fh-border-radius: 0.75rem !default;
 $fh-border-width: 1px !default;
 $fh-border-style: solid !default;
-$fh-border-color: $black !default;
+$fh-border-color: $blue !default;
 
 // Inputs, Textareas, Select, Option
 $fh-input-height: 2.5em !default;
 $fh-input-width: 100% !default;
 $fh-input-max-width: auto !default;
-$fh-input-bg-color: $white !default;
-$fh-focus-bg-color: $grey !default;
+$fh-input-bg-color: $tan !default;
+$fh-focus-bg-color: $white !default;
 $fh-focus-border-color: $fh-border-color !default;
 $fh-focus-font-color: $fh-font-color !default;
 
@@ -31,11 +31,11 @@ $fh-fieldset-bare: true !default;
 // Buttons & Input Submits
 $fh-button-height: 2.5em !default;
 $fh-button-width: 100% !default;
-$fh-button-max-width: auto !default;
-$fh-button-font-color: $fh-font-color !default;
-$fh-button-bg-color: $fh-focus-bg-color !default;
-$fh-button-hover-bg-color: $fh-border-color !default;
-$fh-button-hover-font-color: $fh-font-color !default;
+$fh-button-max-width: 160px !default;
+$fh-button-font-color: $white !default;
+$fh-button-bg-color: $red !default;
+$fh-button-hover-bg-color: $red-dark !default;
+$fh-button-hover-font-color: $fh-button-font-color !default;
 
 // Layout
 $fh-centered: false !default;
@@ -239,8 +239,11 @@ input[type="image"] {
   color: $fh-button-font-color;
   font-weight: $font-bold;
   appearance: none;
-  border-radius: $fh-border-radius;
+  border-radius: $fh-border-radius / 2;
   border: $fh-border-width $fh-border-style $fh-border-color;
+  box-shadow: 5px 5px 10px transparentize($black, 0.2);
+
+  @include transition();
 }
 
 input[type="image"] {
@@ -283,4 +286,6 @@ input[type="submit"]:focus,
 input[type="reset"]:focus {
   background-color: $fh-button-hover-bg-color;
   color: $fh-button-hover-font-color;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 5px transparentize($black, 0.7);
 }

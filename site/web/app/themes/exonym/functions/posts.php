@@ -6,43 +6,14 @@
 */
 
 function ex_terms_header($taxonomies = 'category') {
-  $args = array(
-    'orderby'           => 'name',
-    'order'             => 'ASC',
-    'hide_empty'        => false,
-    'fields'            => 'all',
-    'parent'            => 0,
-    'hierarchical'      => true,
-    'child_of'          => 0,
-    'pad_counts'        => false,
-    'cache_domain'      => 'core'
-  );
-  $terms = get_terms($taxonomies, $args);
-  $return = '';
-  $return .= '<h1 class="page-header">';
-    foreach ( $terms as $term ) {
-      // Terms Found
-      $return .= sprintf(
-        '<span id="category-%1$s" class="cat-parent">%2$s</span>',
-        $term->term_id,
-        $term->name,
-        $term->description
-      );
-
-      $subterms = get_terms($taxonomies, array(
-        'parent'   => $term->term_id,
-        'hide_empty' => false
-      ));
-      foreach ( $subterms as $subterm ) {
-        // Terms not Found
-        $return .= sprintf(
-          '<span id="category-%1$s" class="cat-child">%2$s</span>',
-          $subterm->term_id,
-          $subterm->name,
-          $subterm->description
-        );
-      }
-    }
+  $terms = get_the_terms(get_the_ID(), $taxonomies);
+  $return = '<h1 class="page-header">';
+  $return .= '<span class="cat-parent">';
+  $return .= $terms[0]->name;
+  $return .= '</span>';
+  $return .= '<span class="cat-child">';
+  $return .= $terms[1]->name;
+  $return .= '</span>';
   $return .= '</h1>';
   return $return;
 }
@@ -62,3 +33,26 @@ function my_change_sort_order($query){
   endif;
 };
 add_action('pre_get_posts', 'my_change_sort_order');
+
+// Page Layout Function
+function ex_pagelayout($field = 'page_layout') {
+  if(have_rows($field)):
+    echo '<div class="page-layout">';
+    while(have_rows($field)): the_row();
+      echo '<section class="layout-module layout-' . get_row_layout() . '">';
+      if(get_row_layout() == 'call_to_action'):
+      	get_template_part('views/module', 'cta');
+      elseif(get_row_layout() == 'contact_information'):
+      	get_template_part('views/module', 'contact');
+      elseif(get_row_layout() == 'text'):
+      	get_template_part('views/module', 'text');
+      elseif(get_row_layout() == 'videos'):
+      	get_template_part('views/module', 'videos');
+      endif;
+      echo '</section>';
+    endwhile;
+    echo '</div>';
+  else:
+    echo '<p>Coming Soon</p>';
+  endif;
+}

@@ -5,5 +5,14 @@
 .page-content {
   width: 75%;
   float: right;
-  padding: 3rem 0 0 4rem;
+  padding: 3rem 0 4rem 4rem;
+}
+
+.layout-module {
+  border-top: 3px solid $yellow;
+  margin-bottom: 4rem;
+
+  &:first-of-type {
+    border-top: none;
+  }
 }

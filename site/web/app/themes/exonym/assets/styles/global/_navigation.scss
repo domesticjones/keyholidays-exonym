@@ -32,6 +32,10 @@
     li:last-of-type a {
       border-radius: 0 0 1em 1em;
     }
+
+    li.current-menu-item a {
+      color: $yellow;
+    }
   }
 }
 
@@ -103,6 +107,26 @@
 .nav-footer-small {
   width: 10%;
 }
+
+/* stylelint-disable */
+#menu-item-577 {
+  width: 100%;
+
+  & > ul.sub-menu {
+    width: 100%;
+    columns: 3;
+
+    & > li {
+      padding-top: 0.5rem !important;
+      margin-top: 0 !important;
+    }
+  }
+}
+
+#menu-item-579 {
+  width: 100%;
+}
+/* stylelint-enable */
 
 /**
   Responsive Navigation
