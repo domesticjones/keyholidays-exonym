@@ -1,0 +1,9 @@
+.type-page {
+  @include clearfix();
+}
+
+.page-content {
+  width: 75%;
+  float: right;
+  padding: 3rem 0 0 4rem;
+}

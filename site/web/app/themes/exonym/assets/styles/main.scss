@@ -17,6 +17,7 @@
 @import "global/base";
 @import "global/navigation";
 @import "global/header";
+@import "global/sidebar";
 @import "global/footer";
 @import "~slick-carousel/slick/slick";
 
@@ -29,3 +30,5 @@
   Templates
   ---------------------------------------------------------------------- */
 @import "templates/package";
+@import "templates/page";
+@import "templates/hotels";

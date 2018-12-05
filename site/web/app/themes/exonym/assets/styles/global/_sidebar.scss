@@ -1,0 +1,50 @@
+#sidebar {
+  width: 25%;
+  float: left;
+}
+
+/* stylelint-disable */
+.nav-sidebar {
+  margin-bottom: 3rem;
+
+  ul {
+    @include listStripped();
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .sub-menu {
+    & > li > a {
+      font-weight: $font-bold;
+    }
+
+    .sub-menu > li > a {
+      font-weight: $font-normal;
+      padding-left: 1rem;
+    }
+  }
+
+  & > ul > li.menu-item-has-children > a {
+    @extend .sidebar-title;
+
+    display: block;
+    font-weight: $font-bold;
+    margin-bottom: 1rem;
+  }
+}
+/* stylelint-enable */
+
+.sidebar-widget {
+  margin-bottom: 2rem;
+}
+
+.sidebar-title {
+  background-color: $yellow;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  font-style: italic;
+  text-transform: uppercase;
+}

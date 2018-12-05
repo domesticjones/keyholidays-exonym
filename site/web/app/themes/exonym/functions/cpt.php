@@ -83,3 +83,59 @@ function register_taxonomy_package_categories() {
 
   register_taxonomy( 'package_categories', array('package'), $args );
 }
+
+// Register Custom Post Type
+function cpt_hotels() {
+
+	$labels = array(
+		'name'                  => _x( 'Hotels', 'Post Type General Name', 'hotels' ),
+		'singular_name'         => _x( 'Hotel', 'Post Type Singular Name', 'hotels' ),
+		'menu_name'             => __( 'Hotels', 'hotels' ),
+		'name_admin_bar'        => __( 'Hotel', 'hotels' ),
+		'archives'              => __( 'Hotel Archives', 'hotels' ),
+		'attributes'            => __( 'Hotel Attributes', 'hotels' ),
+		'parent_item_colon'     => __( 'Parent Hotel:', 'hotels' ),
+		'all_items'             => __( 'All Hotels', 'hotels' ),
+		'add_new_item'          => __( 'Add New Hotel', 'hotels' ),
+		'add_new'               => __( 'Add New', 'hotels' ),
+		'new_item'              => __( 'New Hotel', 'hotels' ),
+		'edit_item'             => __( 'Edit Hotel', 'hotels' ),
+		'update_item'           => __( 'Update Hotel', 'hotels' ),
+		'view_item'             => __( 'View Hotel', 'hotels' ),
+		'view_items'            => __( 'View Hotels', 'hotels' ),
+		'search_items'          => __( 'Search Hotel', 'hotels' ),
+		'not_found'             => __( 'Not found', 'hotels' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'hotels' ),
+		'featured_image'        => __( 'Featured Image', 'hotels' ),
+		'set_featured_image'    => __( 'Set featured image', 'hotels' ),
+		'remove_featured_image' => __( 'Remove featured image', 'hotels' ),
+		'use_featured_image'    => __( 'Use as featured image', 'hotels' ),
+		'insert_into_item'      => __( 'Insert into Hotel', 'hotels' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Hotel', 'hotels' ),
+		'items_list'            => __( 'Hotels list', 'hotels' ),
+		'items_list_navigation' => __( 'Hotels list navigation', 'hotels' ),
+		'filter_items_list'     => __( 'Filter Hotels list', 'hotels' ),
+	);
+	$args = array(
+		'label'                 => __( 'Hotel', 'hotels' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 10,
+		'menu_icon'             => 'dashicons-building',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => 'hotels',
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'rewrite'               => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'hotel', $args );
+
+}
+add_action( 'init', 'cpt_hotels', 0 );

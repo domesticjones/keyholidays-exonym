@@ -67,8 +67,8 @@
   <?php get_template_part('views/sidebar', 'menu'); ?>
   <?php if(have_rows('tiers')): while(have_rows('tiers')): the_row(); $name = get_sub_field('name'); ?>
     <?php if(have_rows('pricing')): ?>
-      <div class="package-sidebar-widget">
-        <h3 class="package-sidebar-title"><?php echo $name['title']; ?></h3>
+      <div class="sidebar-widget">
+        <h3 class="sidebar-title"><?php echo $name['title']; ?></h3>
         <?php while(have_rows('pricing')): the_row(); ?>
           <div class="package-pricing package-pricing-size-<?php echo get_sub_field('type')['size']; ?>">
             <p><span class="package-price-title"><?php echo get_sub_field('type')['name']; ?></span><?php the_sub_field('description'); ?></p>
