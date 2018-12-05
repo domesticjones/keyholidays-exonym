@@ -1,3 +1,60 @@
 .type-hotel {
   @include clearfix();
 }
+
+.hotel-single {
+  margin-bottom: 4rem;
+}
+
+.hotel-title {
+  font-size: 1.5rem;
+  font-weight: $font-ultra-bold;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.hotel-location {
+  font-size: 1.25rem;
+  font-weight: $font-normal;
+}
+
+.hotel-photos {
+  @include listStripped();
+  @include grid(flex-start, center, row, wrap);
+
+  margin-bottom: 2rem;
+
+  li {
+    width: 16.666%;
+    padding: 0.25rem;
+  }
+
+  a,
+  img {
+    display: block;
+  }
+}
+
+.hotel-amenities {
+  @include listStripped();
+  @include grid(flex-start, stretch, row, wrap);
+
+  li {
+    @include grid(center, center, column);
+
+    width: 33.333%;
+    text-align: center;
+    padding: 1rem;
+
+    &:nth-child(odd) {
+      background-color: $white;
+    }
+  }
+
+  .name {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: $font-bold;
+    font-style: italic;
+  }
+}
