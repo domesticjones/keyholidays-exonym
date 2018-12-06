@@ -1,0 +1,85 @@
+.module-cta {
+  background-color: $white;
+  border-radius: 1rem;
+  position: relative;
+  border: 2px solid $blue;
+  margin-bottom: 2rem;
+  min-height: 8rem;
+}
+
+.cta-heading {
+  position: relative;
+  z-index: 1;
+  width: 80%;
+  padding: 1rem;
+  margin: 0;
+  border-radius: 1rem 0 1rem 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-style: italic;
+  box-shadow: 5px 5px 10px transparentize($black, 0.5);
+}
+
+.cta-color {
+  &-green {
+    background-color: $green-light;
+    color: $white;
+  }
+
+  &-red {
+    background-color: $red-dark;
+    color: $white;
+  }
+
+  &-yellow {
+    background-color: $yellow;
+    color: $green;
+  }
+}
+
+.cta-content {
+  width: 60%;
+  padding: 1rem;
+  color: $black;
+  font-size: 0.75rem;
+}
+
+.cta-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 0 1rem 1rem 0;
+
+  span {
+    display: none;
+  }
+
+  &-position-front {
+    z-index: 2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(0.9);
+  }
+
+  &-type-full {
+    width: 100%;
+    transform: scale(0.75);
+  }
+}
+
+.cta-button {
+  @extend a.button;
+
+  position: absolute;
+  z-index: 3;
+  top: calc(100% - 0.75rem);
+  height: 2rem;
+  right: 10%;
+  text-align: center;
+  padding: 0.35rem 1.5rem;
+  width: auto;
+}

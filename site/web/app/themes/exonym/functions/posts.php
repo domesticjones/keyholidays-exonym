@@ -27,9 +27,9 @@ add_filter('the_content', 'filter_ptags_on_images');
 // Change sort order of hotels
 function my_change_sort_order($query){
   if(is_post_type_archive('hotel')):
-    $query->set( 'order', 'ASC' );
-    $query->set( 'orderby', 'title' );
-    $query->set( 'posts_per_page', -1 );
+    $query->set('order', 'ASC');
+    $query->set('orderby', 'title');
+    $query->set('posts_per_page', -1);
   endif;
 };
 add_action('pre_get_posts', 'my_change_sort_order');
