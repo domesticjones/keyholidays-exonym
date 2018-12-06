@@ -209,3 +209,9 @@ a.nav-header-home {
     display: block;
   }
 }
+
+@media (max-width: 768px) {
+  #nav-responsive {
+    max-width: 100vw;
+  }
+}
