@@ -61,3 +61,15 @@
     padding: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .page-template-page-home {
+    #content {
+      margin-top: 0;
+    }
+
+    .header-sub-link {
+      display: block;
+    }
+  }
+}

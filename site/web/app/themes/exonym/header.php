@@ -90,3 +90,13 @@
 					<?php ex_contact('phone', true, 'global'); ?>
 				</div>
 			</header>
+			<header id="nav-responsive">
+				<?php
+					wp_nav_menu(array(
+						'container' => 'ul',
+						'menu' => __('Responsive', 'exonym'),
+						'theme_location' => 'responsive-menu',
+						'depth' => 1
+					));
+				?>
+			</header>

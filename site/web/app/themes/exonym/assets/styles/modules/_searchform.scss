@@ -1,0 +1,87 @@
+.search-form {
+  @include grid(flex-start, stretch, row);
+
+  position: relative;
+  background-color: $green;
+  padding: 1rem 2rem;
+  margin: 4rem 0 1rem 0;
+  border-radius: 1.5rem;
+  border: 2px solid $blue;
+  color: $white;
+
+  h1 {
+    color: $yellow;
+    font-style: italic;
+    font-weight: $font-ultra-bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    padding: 1rem 0;
+  }
+
+  button {
+    position: absolute;
+    top: calc(100% - 1.5rem);
+    right: 4rem;
+  }
+}
+
+.search-form-left {
+  @include grid(space-between, flex-start, column);
+
+  width: 60%;
+  padding-right: 2rem;
+}
+
+.search-form-cats {
+  width: 40%;
+}
+
+.search-results-info {
+  text-align: center;
+  color: $green;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.search-form-cat {
+  color: $white;
+  cursor: hand;
+  cursor: pointer;
+
+  @include transition();
+
+  &:hover {
+    color: $green-light;
+  }
+
+  &.is-active {
+    color: $yellow;
+    cursor: not-allowed;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.search-form-list-parent {
+  margin-bottom: 0.5rem;
+}
+
+.search-form-list-children {
+  @include listStripped();
+  @include grid(flex-start, center, row, wrap);
+
+  margin-bottom: 1.5rem;
+
+  li {
+    margin: 0 1rem 0.5rem 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0.25rem;
+  }
+}

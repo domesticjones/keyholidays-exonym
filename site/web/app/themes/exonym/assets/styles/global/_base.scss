@@ -58,3 +58,9 @@ a {
     padding: 0 2rem;
   }
 }
+
+@media (max-width: 768px) {
+  .wrap {
+    padding: 0 1rem;
+  }
+}

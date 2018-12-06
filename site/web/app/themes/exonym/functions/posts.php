@@ -61,3 +61,11 @@ function ex_pagelayout($field = 'page_layout') {
     echo '<p>Coming Soon</p>';
   endif;
 }
+
+// Show all Search Results
+function ex_search_size($query) {
+  if ($query->is_search)
+    $query->query_vars['posts_per_page'] = 999999;
+  return $query;
+}
+add_filter('pre_get_posts', 'ex_search_size');

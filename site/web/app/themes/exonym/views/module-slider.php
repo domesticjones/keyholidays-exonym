@@ -3,7 +3,7 @@
   if(empty($slider)) {
     $slider = get_field('default_slider', 'options');
   }
-  if($slider):
+  if($slider && !is_search()):
 ?>
   <header class="module-slider">
     <?php foreach($slider as $slide): ?>

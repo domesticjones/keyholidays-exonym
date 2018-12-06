@@ -7,8 +7,10 @@ jQuery(document).ready(() => {
 
 	// HEADER: Responsive Nav Toggle
 	$('#responsive-nav-toggle').click(e => {
+		e.preventDefault();
 		const $this = $(e.currentTarget);
 		$this.toggleClass('is-active');
+		$('#nav-responsive').toggleClass('is-active');
 	});
 
 	// HEADER: Slideshow
@@ -55,5 +57,22 @@ jQuery(document).ready(() => {
 		});
 	});
 
+	// MODULE - Search: Select Active on Load
+	const catTarget = $('#cat-target').data('cat');
+	$(`#cat-${catTarget}`).addClass('is-active');
+	$('#cat-hidden').val(catTarget);
 
+	// MODULE - Search: Category Browse Submit
+	$('.search-form-cat').on('click', e => {
+		e.preventDefault();
+		const $this = $(e.currentTarget);
+		if($this.hasClass('is-active')) {
+			$('#cat-hidden').val('');
+			$('#search-form').submit();
+		} else {
+			const target = $this.attr('id');
+			$('#cat-hidden').val(target.substring(4));
+			$('#search-form').submit();
+		}
+	});
 });
