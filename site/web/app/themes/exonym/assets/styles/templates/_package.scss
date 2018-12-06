@@ -169,18 +169,41 @@ a.button-package {
 }
 
 @media (max-width: 1024px) {
+  .package-image {
+    float: none;
+    width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0;
+  }
+
+  .package-details {
+    margin-top: 0 !important;
+  }
+
   .package-content {
     width: 100%;
     float: none;
     padding: 0;
   }
 
-  .package-sidebar {
+  .package-sidebar,
+  .package-title,
+  .package-description {
     width: 100%;
     float: none;
   }
 
   .sidebar-navigation {
     display: none;
+  }
+
+  .package-details-booking {
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .package-gallery li {
+    width: 50%;
   }
 }

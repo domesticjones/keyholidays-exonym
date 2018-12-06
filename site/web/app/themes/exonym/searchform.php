@@ -49,6 +49,6 @@
   <?php if($searchResultCount > 0): ?>
     Found <?php echo $searchResultCount; ?> <?php if($searchResultCount == 1) { echo 'result'; } else { echo 'results'; } ?> listed below
   <?php else: ?>
-    No Results found. Try narrowing down your search.
+    <span class="none">No Results found. Try narrowing down your search.</span>
   <?php endif; ?>
 </section>

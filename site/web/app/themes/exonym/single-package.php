@@ -4,7 +4,10 @@
   get_template_part('views/wrap', 'start');
   echo ex_terms_header('package_categories');
   $images = get_field('images');
-  $imageCount = count($images);
+  $imageCount = 0;
+  if($images) {
+    $imageCount = count($images);
+  }
   $description = get_field('short_description');
   $details = get_field('details');
   $brochure = get_field('brochure');
