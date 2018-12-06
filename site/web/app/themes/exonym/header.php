@@ -18,21 +18,60 @@
           <a href="<?php echo get_home_url(); ?>" class="logo-header">
 						<img src="<?php ex_logo(); ?>" alt="Logo for <?php ex_brand(); ?>" />
 					</a>
-          <nav class="nav-header menu-dropdown" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-            <?php wp_nav_menu(array(
-              'container' => false,								// remove nav container
-              'container_class' => '',						// class of container (should you choose to use it)
-              'menu' => __('Header', 'exonym'),	  // nav name
-              'menu_class' => '',									// adding custom nav class
-              'theme_location' => 'header-menu',	// where it's located in the theme
-              'before' => '',											// before the menu
-              'after' => '',											// after the menu
-              'link_before' => '',								// before each link
-              'link_after' => '',									// after each link
-              'depth' => 0,												// limit the depth of the nav
-              'fallback_cb' => ''									// fallback function (if there is one)
-            )); ?>
+          <nav class="nav-header" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav-header-home">
+							<img src="<?php echo asset_path('images/icon-house.svg'); ?>" alt="Home Page icon" />
+						</a>
+						<?php
+							wp_nav_menu(array(
+					      'container' => 'ul',
+					      'menu' => __('Amtrak', 'exonym'),
+					      'theme_location' => 'amtrak-package',
+								'depth' => 1
+					    ));
+							wp_nav_menu(array(
+					      'container' => 'ul',
+					      'menu' => __('Tourist Railroad', 'exonym'),
+					      'theme_location' => 'touristrailroad-package',
+								'depth' => 1
+					    ));
+							wp_nav_menu(array(
+					      'container' => 'ul',
+					      'menu' => __('Rail & Sail', 'exonym'),
+					      'theme_location' => 'railsail-package',
+								'depth' => 1
+					    ));
+							wp_nav_menu(array(
+					      'container' => 'ul',
+					      'menu' => __('Information', 'exonym'),
+					      'theme_location' => 'info-menu',
+								'depth' => 1
+					    ));
+							wp_nav_menu(array(
+					      'container' => 'ul',
+					      'menu' => __('Contact', 'exonym'),
+					      'theme_location' => 'contact-menu',
+								'depth' => 1
+					    ));
+						?>
           </nav>
+					<?php if(have_rows('header_icons', 'options')): ?>
+						<nav class="header-icons">
+							<?php while(have_rows('header_icons', 'options')): the_row(); ?>
+								<?php
+									$icon = get_sub_field('icon');
+									$link = get_sub_field('link');
+									if(!empty($link)) { echo '<a href="' . $link['url'] . '" target="' . $link['target'] . '">'; }
+										if(empty($icon)) {
+											echo $link['title'];
+										} else {
+											echo '<img src="' . $icon['sizes']['small'] . '" alt="' . $icon['alt'] . '" />';
+										}
+									if(!empty($icon)) { echo '</a>'; }
+								?>
+							<?php endwhile; ?>
+						</nav>
+					<?php endif; ?>
 					<a href="#" id="responsive-nav-toggle">
 	          <span class="line"></span>
 	          <span class="line"></span>

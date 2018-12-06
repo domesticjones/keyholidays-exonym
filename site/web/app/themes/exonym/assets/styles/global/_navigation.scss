@@ -1,4 +1,19 @@
 /**
+  Header
+  ---------------------------------------------------------------------- */
+a.nav-header-home {
+  display: block;
+  width: 1.25rem;
+  padding: 0 !important;
+  margin-bottom: 0.4rem;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+/**
   Sidebar
   ---------------------------------------------------------------------- */
 .sidebar-navigation {
@@ -43,7 +58,7 @@
   Footer
   ---------------------------------------------------------------------- */
 #footer .wrap {
-  @include grid(space-between);
+  @include grid(space-between, flex-start, row, wrap);
 
   nav {
     padding: 0.5rem;
@@ -83,6 +98,25 @@
       }
     }
 
+    .menu-item-577 {
+      width: 100%;
+
+      & > ul.sub-menu {
+        width: 100%;
+        columns: 3;
+
+        & > li {
+          display: block !important;
+          padding-top: 0.5rem !important;
+          margin-top: 0 !important;
+        }
+      }
+    }
+
+    .menu-item-579 {
+      width: 100%;
+    }
+
     & > ul:first-child > li:first-child {
       a {
         background-color: $green;
@@ -108,29 +142,30 @@
   width: 10%;
 }
 
-/* stylelint-disable */
-#menu-item-577 {
-  width: 100%;
-
-  & > ul.sub-menu {
-    width: 100%;
-    columns: 3;
-
-    & > li {
-      padding-top: 0.5rem !important;
-      margin-top: 0 !important;
-    }
-  }
-}
-
-#menu-item-579 {
-  width: 100%;
-}
-/* stylelint-enable */
-
 /**
   Responsive Navigation
   ---------------------------------------------------------------------- */
 #responsive-nav-toggle {
-  @include hamburgerMenu(9, $black, 0.75);
+  @include hamburgerMenu(6, $green, 0.75);
+
+  display: none;
+}
+
+/**
+  Responsive Breakpoints
+  ---------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .nav-header a {
+    padding: 0.25rem 0.5rem !important;
+
+    &.nav-header-home {
+      padding: 0 !important;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #responsive-nav-toggle {
+    display: block;
+  }
 }

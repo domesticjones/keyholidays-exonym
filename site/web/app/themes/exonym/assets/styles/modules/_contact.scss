@@ -78,3 +78,14 @@
     width: 30%;
   }
 }
+
+@media (max-width: 768px) {
+  .form-top {
+    @include grid(center, center, column);
+
+    label {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

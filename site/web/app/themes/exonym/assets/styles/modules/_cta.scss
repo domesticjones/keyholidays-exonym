@@ -3,7 +3,7 @@
   border-radius: 1rem;
   position: relative;
   border: 2px solid $blue;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
   min-height: 8rem;
 }
 
@@ -82,4 +82,19 @@
   text-align: center;
   padding: 0.35rem 1.5rem;
   width: auto;
+}
+
+@media (max-width: 768px) {
+  .cta-image,
+  .cta-content {
+    width: 50%;
+  }
+
+  .cta-heading {
+    width: 75%;
+  }
+
+  .cta-image-type-full {
+    width: 100%;
+  }
 }

@@ -7,14 +7,19 @@
 
 function ex_terms_header($taxonomies = 'category') {
   $terms = get_the_terms(get_the_ID(), $taxonomies);
-  $return = '<h1 class="page-header">';
-  $return .= '<span class="cat-parent">';
-  $return .= $terms[0]->name;
-  $return .= '</span>';
-  $return .= '<span class="cat-child">';
-  $return .= $terms[1]->name;
-  $return .= '</span>';
-  $return .= '</h1>';
+  $return = '';
+  if(count($terms) > 0) {
+    $return .= '<h1 class="page-header">';
+    $return .= '<span class="cat-parent">';
+    $return .= $terms[0]->name;
+    $return .= '</span>';
+    if(count($terms) > 1) {
+      $return .= '<span class="cat-child">';
+      $return .= $terms[1]->name;
+      $return .= '</span>';
+    }
+    $return .= '</h1>';
+  }
   return $return;
 }
 

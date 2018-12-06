@@ -167,3 +167,20 @@ a.button-package {
   font-weight: $font-bold;
   font-size: 0.85em;
 }
+
+@media (max-width: 1024px) {
+  .package-content {
+    width: 100%;
+    float: none;
+    padding: 0;
+  }
+
+  .package-sidebar {
+    width: 100%;
+    float: none;
+  }
+
+  .sidebar-navigation {
+    display: none;
+  }
+}

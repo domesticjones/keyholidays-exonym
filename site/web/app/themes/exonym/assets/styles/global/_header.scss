@@ -67,10 +67,6 @@ body {
   }
 }
 
-#responsive-nav-toggle {
-  display: none;
-}
-
 .header-sub {
   position: relative;
 
@@ -169,13 +165,155 @@ body {
   }
 }
 
-/* stylelint-enable*/
-
 .header-sub-link {
   position: relative;
   z-index: 1;
 }
 
+.nav-header {
+  position: relative;
+  z-index: 2;
+  float: left;
+  margin-left: calc(35% + 100px);
+  width: 35%;
+  height: 90px;
+
+  @include grid(center, center, row, wrap, center);
+
+  ul {
+    @include listStripped();
+  }
+
+  a {
+    display: block;
+    padding: 0.25rem 1rem;
+    color: $green;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+}
+
+.header-icons {
+  @include grid(center);
+
+  width: calc(30% - 100px);
+  float: right;
+
+  img {
+    display: block;
+    height: 60px;
+    width: auto;
+    margin: 1rem;
+  }
+
+  a {
+    @include transition();
+
+    &:hover {
+      transform: scale(0.975);
+    }
+  }
+}
+
+/* stylelint-enable*/
+
 /**
   Responsive Breakpoints
   ---------------------------------------------------------------------- */
+@media (max-width: 1400px) {
+  .nav-header {
+    width: 40%;
+    margin-left: calc(35% + 60px);
+  }
+
+  .header-icons {
+    width: calc(20% - 60px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-sub .wrap {
+    padding: 0;
+  }
+
+  .logo-header img {
+    left: 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  #header .wrap {
+    @include grid(space-between, center);
+
+    height: 90px;
+  }
+
+  .logo-header {
+    position: static;
+    display: block;
+    height: auto;
+    width: 50%;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    img {
+      left: 0;
+    }
+  }
+
+  .nav-header,
+  .header-icons {
+    display: none;
+  }
+
+  .header-sub nav:last-of-type a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 4.5rem;
+  }
+
+  .header-sub .wrap {
+    @include grid(center, center, column);
+
+    nav {
+      width: 100%;
+    }
+
+    a {
+      padding: 0;
+
+      &::before {
+        display: none;
+        border: none;
+      }
+
+      span {
+        transform: none;
+      }
+    }
+  }
+
+  #header {
+    height: 4.5rem;
+
+    & > .wrap {
+      height: 4rem;
+    }
+  }
+
+  .logo-header {
+    width: auto;
+
+    img {
+      height: 2rem;
+      width: auto;
+    }
+  }
+}
