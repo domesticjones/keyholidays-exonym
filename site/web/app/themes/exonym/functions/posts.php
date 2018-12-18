@@ -58,7 +58,8 @@ function ex_pagelayout($field = 'page_layout') {
     endwhile;
     echo '</div>';
   else:
-    echo '<p>Coming Soon</p>';
+    echo '<img src="' . asset_path('images/comingsoon.jpg') . '" alt="Coming Soon Image" class="aligncenter" />';
+    echo '<p>' . get_the_title() . ' is coming soon</p>';
   endif;
 }
 

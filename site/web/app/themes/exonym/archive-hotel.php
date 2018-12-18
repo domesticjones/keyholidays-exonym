@@ -44,6 +44,13 @@
           amenity('Onsite Gym', 'onsite_gym');
         ?>
       </ul>
+      <?php if(have_rows('extras')): ?>
+        <div class="hotel-extras">
+          <?php while(have_rows('extras')): the_row(); ?>
+            <div class="hotel-extra"><?php the_sub_field('extra'); ?></div>
+          <?php endwhile; ?>
+        </div>
+      <?php endif; ?>
     </div>
   <?php endwhile; ?>
 </section>

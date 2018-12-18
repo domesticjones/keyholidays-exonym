@@ -17,9 +17,13 @@
   <div class="package-details">
     <?php $image = $images[0]; if($image): ?>
       <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="package-image" />
+    <?php else: ?>
+      <img src="<?php echo asset_path('images/comingsoon.jpg'); ?>" alt="Image Coming Soon" class="package-image" />
     <?php endif; ?>
     <h2 class="package-title"><?php the_title(); ?></h2>
-    <?php if($description) { echo '<p class="package-description">' . $description . '</p>'; } ?>
+    <p class="package-description">
+      <?php if($description) { echo $description; } else { echo 'Information about ' . get_the_title() . ' is coming soon.'; } ?>
+    </p>
   </div>
   <?php if($imageCount > 1 && $images): $skip = true; ?>
     <ul class="package-details package-gallery">

@@ -55,23 +55,7 @@
 					    ));
 						?>
           </nav>
-					<?php if(have_rows('header_icons', 'options')): ?>
-						<nav class="header-icons">
-							<?php while(have_rows('header_icons', 'options')): the_row(); ?>
-								<?php
-									$icon = get_sub_field('icon');
-									$link = get_sub_field('link');
-									if(!empty($link)) { echo '<a href="' . $link['url'] . '" target="' . $link['target'] . '">'; }
-										if(empty($icon)) {
-											echo $link['title'];
-										} else {
-											echo '<img src="' . $icon['sizes']['small'] . '" alt="' . $icon['alt'] . '" />';
-										}
-									if(!empty($icon)) { echo '</a>'; }
-								?>
-							<?php endwhile; ?>
-						</nav>
-					<?php endif; ?>
+					<?php ex_social(); ?>
 					<a href="#" id="responsive-nav-toggle">
 	          <span class="line"></span>
 	          <span class="line"></span>
